@@ -221,7 +221,8 @@ int m_who(struct Client* cptr, struct Client* sptr, int parc, char* parv[])
           continue;
         case 'm':
         case 'M':
-          matchsel |= WHO_FIELD_MRK;
+		  if (IsAnOper(sptr))
+            matchsel |= WHO_FIELD_MRK;
           continue;
       }
     if (ch == '%')
